@@ -14,6 +14,16 @@ class StudentRecordsTestableTest {
         test = new StudentRecordsTestable();
     }
 
+   @Test
+    void beforeSave(){
+        assertEquals(2, test.student.getSchedule().getClasses().size());
+    }
+    @Test
+    void saveClass(){
+        test.saveClass("012","015");
+        assertEquals(3, test.student.getSchedule().getClasses().size());
+    }
+
     @Test
     void beforeDrop(){
         assertEquals(2, test.student.getSchedule().getClasses().size());
@@ -27,7 +37,7 @@ class StudentRecordsTestableTest {
 
     @Test
     void beforeInsert(){
-        assertEquals(0, test.classInSched.getGrade());
+        assertEquals(0, test.classInSched2.getGrade());
     }
     @Test
     void insertGrade() {
